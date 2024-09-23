@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('meals', function (Blueprint $table) {
             $table->id();
+            $table->string('description');
+            $table->date('meal_date')->nullable(false)->default(date('Y-m-d'));
+            $table->float('bf_rate')->nullable(false)->default(0);
+            $table->float('ln_rate')->nullable(false)->default(0);
+            $table->float('dn_rate')->nullable(false)->default(0);
+            $table->string('meal_type')->nullable(false)->default('regular');
             $table->timestamps();
         });
     }
